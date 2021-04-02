@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 
-router.get('/productos', (req, res) => {
+router.get('/', (req, res) => {
     if (arrayProducts.length > 0) {
         res.send(arrayProducts);
     }
@@ -13,7 +13,7 @@ router.get('/productos', (req, res) => {
     }
 })
 
-router.get('/productos/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     let id = parseInt(req.params.id)
     let idx = getindex(id)
     let product = arrayProducts[idx]
@@ -27,7 +27,7 @@ router.get('/productos/:id', (req, res) => {
     res.send(JSON.stringify(product));
 })
 
-router.post('/productos', (req, res) => {
+router.post('/', (req, res) => {
     var id = 1
     if (arrayProducts.length > 0) {
         id = arrayProducts[arrayProducts.length - 1].id + 1
@@ -38,7 +38,7 @@ router.post('/productos', (req, res) => {
     res.send(req.body);
 })
 
-router.put('/productos/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     let id = parseInt(req.params.id)
     let idx = getindex(id)
     let product = arrayProducts[idx]
@@ -52,7 +52,7 @@ router.put('/productos/:id', (req, res) => {
     }
 })
 
-router.delete('/productos/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     let id = parseInt(req.params.id)
     let idx = getindex(id)
     let product = arrayProducts[idx]
